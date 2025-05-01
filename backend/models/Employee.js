@@ -1,7 +1,7 @@
-const { default: mongoose } = require('mongoose')
-const moogoose = require('mongoose')
 
-const EmployeeSchema = new moogoose.Schema({
+const mongoose = require('mongoose')
+
+const EmployeeSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String
