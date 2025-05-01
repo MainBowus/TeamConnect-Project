@@ -1,53 +1,70 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import './Signup.css';
+import axios from 'axios';
 
 function Signup() {
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [agree, setAgree] = useState(false);
 
-    const handleSubmit = (e) => {
-      e.preventDefault()
-      axios.post('http://localhost:3001/register', {name, email, password})
-      .then(result => console.log(result))
-      .catch(err=> console.log(err))
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
     }
 
+    if (!agree) {
+      alert("Please accept the terms.");
+      return;
+    }
+
+    axios.post('http://localhost:3001/register', {
+      name: username,
+      email,
+      password
+    })
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+  };
 
   return (
-<div className="d-flex justify-content-center align-items-center vh-100 bg-secondary">
-      <div className="bg-white p-4 rounded" style={{ minWidth: '300px', maxWidth: '400px', width: '100%' }}>
-        <h2 className="text-center mb-4">Register</h2>
-        
+    <div className="signup-container">
+      <div className="signup-left">
+        <h2>แลกเปลี่ยนทักษะผ่าน</h2>
+        <h1><span className="highlight">SYNERLEARN</span></h1>
+      </div>
+      <div className="signup-form-box">
+        <h2 className="signup-title">สร้างบัญชี</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label fw-bold">Name</label>
-            <input type="text" className="form-control" id="name" placeholder="Enter Name" onChange={(e) => setName(e.target.value)} />
+          <label>Username</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+
+          <label>Email address</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+
+          <label>Confirm Password</label>
+          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+
+          <div className="checkbox-row">
+            <input type="checkbox" checked={agree} onChange={() => setAgree(!agree)} />
+            <span>ยอมรับเงื่อนไข</span>
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label fw-bold">Email</label>
-            <input type="email" className="form-control" id="email" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}/>
-          </div>
+          <button type="submit">สร้างบัญชี</button>
 
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label fw-bold">Password</label>
-            <input type="password" className="form-control" id="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)}/>
-          </div>
-
-          <div className="d-grid mb-3">
-            <button type="submit" className="btn btn-success">Register</button>
-          </div>
+          <p className="login-link">มีบัญชีแล้วใช่ไหม? <Link to="/login">เข้าสู่ระบบ</Link></p>
         </form>
-
-        <div className="text-center">
-          <p className="mb-2">Already Have an Account</p>
-          <Link to="/login" className="btn btn-light border">Login</Link>
-        </div>
       </div>
     </div>
   );
-};
+}
 
-export default Signup
+export default Signup;
