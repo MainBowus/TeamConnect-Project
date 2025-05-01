@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Signup from './Signup'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Login from './Login'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";      // ✅ แก้ชื่อให้ถูก
+import Post from "./Post";
+import Skills from "./Skills";
 
 function App() {
-
-
+  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/register' element={<Signup />}> </Route>
-        <Route path='/login' element={<Login />}> </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/skills" element={<Skills />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
+
