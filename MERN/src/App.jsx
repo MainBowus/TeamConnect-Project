@@ -4,6 +4,7 @@ import Home from './Home';
 import Post from './Post';
 import Skills from './Skills';
 import axios from 'axios';
+import Landing from './Landing';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -25,7 +26,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/post" element={<Post onPost={handlePost} />} />
         <Route path="/skills" element={<Skills posts={posts} />} />
       </Routes>
