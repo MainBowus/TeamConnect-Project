@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -9,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// เชื่อม MongoDB (คุณต้องเปิด MongoDB Server ด้วยนะ)
+// Connect MongoDB
 mongoose.connect('mongodb+srv://Synerlearn:456789@synerlearn.nzfeit0.mongodb.net/Synerlearndata', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -17,41 +18,76 @@ mongoose.connect('mongodb+srv://Synerlearn:456789@synerlearn.nzfeit0.mongodb.net
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch((err) => console.error('MongoDB connection error: ', err));
 
-// Schema ของข้อมูลที่โพสต์
+// --------- Schemas ---------
+// Post Schema
 const PostSchema = new mongoose.Schema({
   title: String,
   description: String,
   contact: String,
   exchange: String,
-  category: { type: String, required: true }, // เพิ่ม category
+  category: { type: String, required: true },
 });
 
 const Post = mongoose.model('Post', PostSchema);
 
-// API Routes
+// User Schema
+const UserSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+const User = mongoose.model('User', UserSchema);
 
-// ✅ Get all posts
+// --------- Routes ---------
+// Get all posts
 app.get('/api/posts', async (req, res) => {
   const posts = await Post.find();
   res.json(posts);
 });
 
-// ✅ Add a post
+// Add a post
 app.post('/api/posts', async (req, res) => {
-  const { title, description, contact, exchange, category } = req.body; // เพิ่ม category ในการรับข้อมูล
-  const newPost = new Post({ title, description, contact, exchange, category }); // ส่ง category ไปที่ database
-  console.log('Received post:', req.body);  // เช็คข้อมูลที่รับมา
+  const { title, description, contact, exchange, category } = req.body;
+  const newPost = new Post({ title, description, contact, exchange, category });
   try {
     const savedPost = await newPost.save();
-    console.log('New Post Saved:', savedPost);  // เช็คข้อมูลที่บันทึก
+
     res.status(201).json(savedPost);
   } catch (err) {
-    console.error('Error saving post:', err);  // ถ้ามีข้อผิดพลาด
+    
     res.status(500).json({ error: 'Failed to save post' });
   }
 });
 
-// Start server
+// Register
+app.post('/api/register', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const existingUser = await User.findOne({ username });
+    if (existingUser) return res.status(400).json({ message: 'มีผู้ใช้นี้อยู่แล้ว' });
+
+    const newUser = new User({ username, password });
+    await newUser.save();
+    res.status(201).json({ message: 'ลงทะเบียนสำเร็จ' });
+  } catch (err) {
+    res.status(500).json({ message: 'เกิดข้อผิดพลาดในระบบ' });
+  }
+});
+
+// Login
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username });
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง' });
+    }
+    res.json({ message: 'เข้าสู่ระบบสำเร็จ' });
+  } catch (err) {
+    res.status(500).json({ message: 'เกิดข้อผิดพลาดในระบบ' });
+  }
+});
+
+// --------- Server Start ---------
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on http://localhost:${PORT}`);
