@@ -1,11 +1,16 @@
-// src/pages/Landing.jsx
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CSS/landing.css'; // ใช้ CSS ที่เพื่อนให้มา
+import './CSS/landing.css';
 
 const Landing = () => {
   const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn'); // ลบสถานะการล็อกอิน
+    navigate('/'); // กลับไปหน้า Landing
+  };
   return (
     <div className="landing-wrapper">
       <div className="background-shapes">
@@ -14,18 +19,25 @@ const Landing = () => {
       </div>
 
       <header className="top-bar">
-        <div className="logo">
-          SYNERLEARN<sup>™</sup>
-        </div>
+        <div className="logo">SYNERLEARN<sup>™</sup></div>
         <nav className="menu">
           <a href="#">ข่าวสาร</a>
           <a href="#">ติดต่อทีมงาน</a>
           <a href="#">อื่น...</a>
         </nav>
-        <div className="profile">
-          <i className="fas fa-plus"></i>
-          <img src="/user.png" alt="Profile" />
-        </div>
+        
+        {/* ✅ ตรวจสอบว่าล็อกอินอยู่หรือไม่ */}
+        {isLoggedIn ? (
+          <div className="profile" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i> {/* ไอคอน logout */}
+            <span>ออกจากระบบ</span>
+          </div>
+        ) : (
+          <div className="profile" onClick={() => navigate('/login')}>
+            <i className="fas fa-user"></i> {/* ไอคอน login */}
+            <span>เข้าสู่ระบบ</span>
+          </div>
+        )}
       </header>
 
       <main className="main-content">
