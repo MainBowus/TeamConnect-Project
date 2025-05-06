@@ -20,28 +20,40 @@ function Login() {
   };
 
   return (
-    <>
-      <div className="login-bg"></div>
-      <div className="login-container">
-        <h2 className="login-title">Login</h2>
-        <form className="login-form" onSubmit={handleLogin}>
-          <input 
-            className="login-input" 
-            placeholder="Username" 
-            onChange={(e) => setUsername(e.target.value)} 
-            required 
-          />
-          <input 
-            className="login-input"
-            type="password" 
-            placeholder="Password" 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
-          />
-          <button className="login-button" type="submit">เข้าสู่ระบบ</button>
-        </form>
+    <div className="auth-container">
+      <div className="background-shapes">
+        <div className="shape shape1"></div>
+        <div className="shape shape2"></div>
       </div>
-    </>
+      
+      <div className="auth-card">
+        <div className="left-panel">
+          <h1>SYNER<br /><span>LEARN</span></h1>
+          <a href="/register" className="switch-btn">CREATE ACCOUNT</a>
+        </div>
+        
+        <div className="right-panel">
+          <h2>Login</h2>
+          <form onSubmit={handleLogin}>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">เข้าสู่ระบบ</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 

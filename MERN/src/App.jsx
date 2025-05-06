@@ -7,6 +7,8 @@ import axios from 'axios';
 import Landing from './Landing';
 import Login from './login';
 import Register from './register';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [posts, setPosts] = useState([]);
