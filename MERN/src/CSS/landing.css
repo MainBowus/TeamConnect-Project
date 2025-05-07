@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
 
@@ -394,3 +395,41 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   
+  /* ปุ่มเข้าสู่ระบบ/ออกจากระบบ */
+.auth-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-btn i {
+  font-size: 1.2rem;
+}
+
+.login-btn {
+  background-color: #d9c4f2;
+  color: rgb(255, 255, 255);
+}
+
+.login-btn:hover {
+  background-color: #c7d7f7;
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  background-color: #c7d7f7;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #d9c4f2;
+  transform: scale(0.95)
+}

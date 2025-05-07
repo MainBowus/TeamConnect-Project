@@ -34,6 +34,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/post" element={
+          <PrivateRoute>
+            <Post onPost={handlePost} />
+          </PrivateRoute>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         
@@ -43,11 +48,6 @@ function App() {
         <Route path="/home" element={
           <PrivateRoute>
             <Home />
-          </PrivateRoute>
-        } />
-        <Route path="/post" element={
-          <PrivateRoute>
-            <Post onPost={handlePost} />
           </PrivateRoute>
         } />
       </Routes>

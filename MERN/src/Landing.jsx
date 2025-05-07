@@ -25,18 +25,16 @@ const Landing = () => {
           <a href="#">ติดต่อทีมงาน</a>
           <a href="#">อื่น...</a>
         </nav>
-        
-        {/* ✅ ตรวจสอบว่าล็อกอินอยู่หรือไม่ */}
+
+        {/* ปุ่มเข้าสู่ระบบ/ออกจากระบบ */}
         {isLoggedIn ? (
-          <div className="profile" onClick={handleLogout}>
-            <i className="fas fa-sign-out-alt"></i> {/* ไอคอน logout */}
-            <span>ออกจากระบบ</span>
-          </div>
+          <button className="auth-btn logout-btn" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt"></i> ออกจากระบบ
+          </button>
         ) : (
-          <div className="profile" onClick={() => navigate('/login')}>
-            <i className="fas fa-user"></i> {/* ไอคอน login */}
-            <span>เข้าสู่ระบบ</span>
-          </div>
+          <button className="auth-btn login-btn" onClick={() => navigate('/login')}>
+            <i className="fas fa-user"></i> เข้าสู่ระบบ
+          </button>
         )}
       </header>
 
@@ -55,9 +53,9 @@ const Landing = () => {
         </section>
 
         <aside className="news">
-          <div className="news-box title">พื้นที่แสดงข่าวสาร</div>
-          <div className="news-box"></div>
-          <div className="news-box"></div>
+          <div className="news-box title">พื้นที่โฆษณา</div>
+          <div className="news-box title">พื้นที่โฆษณา</div>
+          <div className="news-box title">พื้นที่โฆษณา</div>
         </aside>
 
         <div className="bottom-left-logo">
