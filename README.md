@@ -46,7 +46,7 @@ SYNERLEARN™ คือเว็บแอปที่เปิดโอกาส
 
 ## 🙋‍♂️ ผู้พัฒนา
 Mark (MainBowUs)
-👨‍💻 First-year Software Engineering student at Thammasat University
-🔗 GitHub: MainBowUs
+- 👨‍💻 First-year Software Engineering student at Thammasat University
+- 🔗 GitHub: MainBowUs
 
 - สร้างด้วย ❤️ เพื่อการเชื่อมต่อ แลกเปลี่ยน และเติบโตไปด้วยกัน
