@@ -184,3 +184,32 @@
 .info-value {
   color: #0077cc;
 }
+
+/* ตัวเลือกหมวดหมู่ */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+.filter-btn.active {
+  background-color: #0077cc;
+  color: white;
+  border-color: #0077cc;
+}

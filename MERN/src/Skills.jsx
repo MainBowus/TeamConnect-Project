@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './CSS/Skills.css';
 
 function Skills({ posts }) {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  const [selectedCategory, setSelectedCategory] = useState(''); // สร้าง state สำหรับหมวดหมู่ที่เลือก
 
   const handleAuthClick = () => {
     if (isLoggedIn) {
@@ -13,6 +16,16 @@ function Skills({ posts }) {
       navigate('/login');
     }
   };
+
+  // ฟังก์ชันสำหรับเปลี่ยนหมวดหมู่ที่เลือก
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
+  // กรองโพสต์ตามหมวดหมู่ที่เลือก
+  const filteredPosts = selectedCategory
+    ? posts.filter((post) => post.category === selectedCategory)
+    : posts;
 
   return (
     <div className="skills-page">
@@ -33,11 +46,46 @@ function Skills({ posts }) {
       </header>
       <main className="content-container">
         <h1 className="section-title">ดูทักษะที่มี</h1>
+
+        {/* ตัวเลือกหมวดหมู่ */}
+        <div className="category-filter">
+          <button
+            className={`filter-btn ${selectedCategory === '' ? 'active' : ''}`}
+            onClick={() => handleCategoryChange('')}
+          >
+            ทั้งหมด
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === 'Programming' ? 'active' : ''}`}
+            onClick={() => handleCategoryChange('Programming')}
+          >
+            Programming
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === 'Design' ? 'active' : ''}`}
+            onClick={() => handleCategoryChange('Design')}
+          >
+            Design
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === 'Language' ? 'active' : ''}`}
+            onClick={() => handleCategoryChange('Language')}
+          >
+            Language
+          </button>
+          <button
+            className={`filter-btn ${selectedCategory === 'Business' ? 'active' : ''}`}
+            onClick={() => handleCategoryChange('Business')}
+          >
+            Business
+          </button>
+        </div>
+
         <div className="skills-list">
-          {posts.length === 0 ? (
+          {filteredPosts.length === 0 ? (
             <p className="empty-message">ยังไม่มีทักษะที่แสดงในขณะนี้</p>
           ) : (
-            posts.map((post, index) => (
+            filteredPosts.map((post, index) => (
               <div key={index} className="skill-card">
                 <h2 className="skill-title">{post.title}</h2>
                 <p className="skill-description">{post.description}</p>
