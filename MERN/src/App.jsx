@@ -9,6 +9,7 @@ import Skills from './Skills';
 import Landing from './Landing';
 import Login from './login';
 import Register from './register';
+import About from './About';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -41,6 +42,7 @@ function App() {
         } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
         
         <Route path="/skills" element={<Skills posts={posts} />} />
 

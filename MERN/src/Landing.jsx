@@ -21,9 +21,9 @@ const Landing = () => {
       <header className="top-bar">
         <div className="logo">SYNERLEARN<sup>™</sup></div>
         <nav className="menu">
-          <a href="#">ข่าวสาร</a>
+          <a href="/">ข่าวสาร</a>
           <a href="#">ติดต่อทีมงาน</a>
-          <a href="#">อื่น...</a>
+          <a href="/about">เกี่ยวกับเรา</a>
         </nav>
 
         {/* ปุ่มเข้าสู่ระบบ/ออกจากระบบ */}
