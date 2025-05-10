@@ -8,7 +8,7 @@ import Skills from './Skills';
 
 import Landing from './Landing';
 import Login from './Login';
-import Register from './register';
+import Register from './Register';
 import About from './About';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
