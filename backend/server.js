@@ -7,7 +7,10 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://Synerlearn.onrender.com', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 app.use(bodyParser.json());
 
 // Connect MongoDB
