@@ -7,16 +7,16 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: ['https://Synerlearn.onrender.com', 'http://localhost:5173'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 // Connect MongoDB
-mongoose.connect('mongodb+srv://Synerlearn:456789@synerlearn.nzfeit0.mongodb.net/')
-  .then(() => console.log('✅ Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error: ', err));
+mongoose.connect('mongodb+srv://Synerlearn:456789@synerlearn.nzfeit0.mongodb.net/', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('✅ Connected to MongoDB'))
+.catch((err) => console.error('MongoDB connection error: ', err));
 
 // --------- Schemas ---------
 // Post Schema
