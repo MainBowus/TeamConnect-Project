@@ -58,19 +58,19 @@ const About = () => {
               <p>Full Stack Developer</p>
             </div>
             <div className="team-member">
-              <img src="/public/children.jpg" alt="Member 2" />
-              <h3>Nathachapong Surasitthanathorn</h3>
-              <p>Documentation</p>
+              <img src="/public/user.png" alt="Member 2" />
+              <h3>NUTTHAKIT SAELIM</h3>
+              <p>Business/System Analyst</p>
             </div>
              <div className="team-member">
-              <img src="/public/children.jpg" alt="Member 2" />
+              <img src="/public/user.png" alt="Member 2" />
               <h3>RATTHASAT NGAMKKHUN</h3>
               <p>Frontend Developer</p>
             </div>
              <div className="team-member">
-              <img src="/public/children.jpg" alt="Member 2" />
-              <h3>Nathachapong Surasitthanathorn</h3>
-              <p>Business/System Analyst</p>
+              <img src="/public/user.png" alt="Member 2" />
+              <h3>NATHAACHAPONG SURASITTHANATHORN</h3>
+              <p>Documentation</p>
             </div>
           </div>
         </section>
