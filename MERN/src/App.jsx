@@ -8,7 +8,7 @@ import Skills from './Skills';
 
 import Landing from './Landing';
 import Login from './Login';
-import Register from '.Register';
+import Register from './Register';
 import About from './About';
 
 
