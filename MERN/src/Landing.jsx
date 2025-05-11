@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CSS/landing.css';
@@ -53,9 +52,15 @@ const Landing = () => {
         </section>
 
         <aside className="news">
-          <div className="news-box title">พื้นที่โฆษณา</div>
-          <div className="news-box title">พื้นที่โฆษณา</div>
-          <div className="news-box title">พื้นที่โฆษณา</div>
+          <a href="https://www.facebook.com" className="news-box title">
+            <img src="/public/children.jpg" alt="โฆษณา 1" />
+          </a>
+          <a href="/page2" className="news-box title">
+            <img src="/public/children.jpg" alt="โฆษณา 2" />
+          </a>
+          <a href="/page3" className="news-box title">
+            <img src="/public/children.jpg" alt="โฆษณา 3" />
+          </a>
         </aside>
 
         <div className="bottom-left-logo">
