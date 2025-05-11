@@ -1,4 +1,5 @@
-// server.js
+// นำเข้าโมดูลที่จำเป็น
+require('dotenv').config(); // โหลดตัวแปรจากไฟล์ .env
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,13 +11,18 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// ดึงค่าจาก .env
+const MONGODB_URI = process.env.MONGODB_URI;
+const PORT = process.env.PORT || 5000;
+
 // Connect MongoDB
-mongoose.connect('mongodb+srv://Synerlearn:456789@synerlearn.nzfeit0.mongodb.net/Synerlearndata', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ Connected to MongoDB'))
-.catch((err) => console.error('MongoDB connection error: ', err));
+mongoose
+  .connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('✅ Connected to MongoDB'))
+  .catch((err) => console.error('❌ MongoDB connection error: ', err));
 
 // --------- Schemas ---------
 // Post Schema
@@ -40,8 +46,12 @@ const User = mongoose.model('User', UserSchema);
 // --------- Routes ---------
 // Get all posts
 app.get('/api/posts', async (req, res) => {
-  const posts = await Post.find();
-  res.json(posts);
+  try {
+    const posts = await Post.find();
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch posts' });
+  }
 });
 
 // Add a post
@@ -50,10 +60,8 @@ app.post('/api/posts', async (req, res) => {
   const newPost = new Post({ title, description, contact, exchange, category });
   try {
     const savedPost = await newPost.save();
-
     res.status(201).json(savedPost);
   } catch (err) {
-    
     res.status(500).json({ error: 'Failed to save post' });
   }
 });
@@ -88,7 +96,6 @@ app.post('/api/login', async (req, res) => {
 });
 
 // --------- Server Start ---------
-const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on http://localhost:${PORT}`);
 });
