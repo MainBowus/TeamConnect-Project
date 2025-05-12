@@ -243,3 +243,9 @@
     transform: translateY(20px) rotate(65deg);
   }
 }
+
+.filter-btn.active {
+  background-color: #0077cc;
+  color: white;
+  border-color: #0077cc;
+}

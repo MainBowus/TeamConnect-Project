@@ -5,7 +5,11 @@ const PostSchema = new mongoose.Schema({
   description: { type: String, required: true },
   contact: String,
   exchange: String,
-  category: { type: String, required: true }, // เพิ่ม category
+  category: { 
+    type: String, 
+    required: true,
+    enum: ['Programming', 'Design', 'Language', 'Business', 'Other'], // เพิ่ม 'Other'
+  },
 });
 
 module.exports = mongoose.model('Post', PostSchema);

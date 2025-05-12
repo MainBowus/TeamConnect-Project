@@ -53,13 +53,13 @@ const Landing = () => {
 
         <aside className="news">
           <a href="https://www.facebook.com" className="news-box title">
-            <img src="/public/children.jpg" alt="โฆษณา 1" />
+            <img src="/public/logoSLN.png" alt="โฆษณา 1" />
           </a>
           <a href="/page2" className="news-box title">
-            <img src="/public/children.jpg" alt="โฆษณา 2" />
+            <img src="/public/logoSLN.png" alt="โฆษณา 2" />
           </a>
           <a href="/page3" className="news-box title">
-            <img src="/public/children.jpg" alt="โฆษณา 3" />
+            <img src="/public/logoSLN.png" alt="โฆษณา 3" />
           </a>
         </aside>
 

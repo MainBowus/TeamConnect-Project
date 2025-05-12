@@ -65,6 +65,7 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   z-index: 2;
+  animation: fadeInMove 1.5s ease-in-out;
 }
 
 /* Panels */
@@ -236,5 +237,27 @@
 
   .auth-container form {
     max-width: 100%;
+  }
+}
+
+/* Keyframe สำหรับเฟดอิน */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ใช้เฟดอินกับ auth-container */
+@keyframes fadeInMove {
+  from {
+    opacity: 0;
+    transform: translateX(-20px); /* เริ่มต้นจากตำแหน่งที่ขยับซ้าย */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px); /* กลับมาตำแหน่งเดิม */
   }
 }

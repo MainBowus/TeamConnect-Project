@@ -59,6 +59,7 @@ function Post({ onPost }) {
             <option value="Design">Design</option>
             <option value="Language">Language</option>
             <option value="Business">Business</option>
+            <option value="Other">อื่นๆ</option>
           </select>
           <input
             name="exchange"

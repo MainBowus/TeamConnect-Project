@@ -17,7 +17,9 @@ function Home() {
         <div className="shape shape3"></div>
       </div>
       <header className="home-header">
-        <div className="home-logo">SYNERLEARN</div>
+        <div className="home-logo" onClick={() => navigate('/')}>
+          SYNERLEARN<sup>™</sup>
+        </div>
         <button onClick={handleLogout} className="logout-btn">
           <i className="fas fa-sign-out-alt"></i> ออกจากระบบ
         </button>
