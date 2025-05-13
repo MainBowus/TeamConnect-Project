@@ -1,5 +1,5 @@
 // นำเข้าโมดูลที่จำเป็น
-require('dotenv').config(); // โหลดตัวแปรจากไฟล์ .env
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
