@@ -39,7 +39,7 @@ const Landing = () => {
 
       <main className="main-content">
         <section className="welcome">
-          <h1>WELCOME TO SYNERLEARN !!!</h1>
+          <h1>WELCOME TO SYNERLEARN</h1>
           <p>ชุมชนออนไลน์สำหรับผู้ที่สนใจในหัวข้อเฉพาะทาง</p>
           <p>ไม่ว่าคุณจะหลงใหลในโปรแกรมมิ่ง เกมดีไซน์ หรือภาษาเฉพาะทาง</p>
           <p>ที่นี่คือที่ที่คุณจะได้พบเพื่อนที่เข้าใจ และเรียนรู้ไปพร้อมกัน</p>
