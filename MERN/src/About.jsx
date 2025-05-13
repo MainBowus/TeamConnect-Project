@@ -58,7 +58,7 @@ const About = () => {
               <p>Full Stack Developer</p>
             </div>
             <div className="team-member">
-              <img src="/public/user.png" alt="Member 2" />
+              <img src="/public/rarm.jpg" alt="Member 2" />
               <h3>NUTTHAKIT SAELIM</h3>
               <p>Business/System Analyst</p>
             </div>
