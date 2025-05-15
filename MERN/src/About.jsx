@@ -53,22 +53,22 @@ const About = () => {
           <h2>ทีมงานของเรา</h2>
           <div className="team-members">
             <div className="team-member">
-              <img src="/public/mark.jpg" alt="Member 1" />
+              <img src="/mark.jpg" alt="Member 1" />
               <h3>AMONTEP JERAMANAPONG</h3>
               <p>Full Stack Developer</p>
             </div>
             <div className="team-member">
-              <img src="/public/rarm.jpg" alt="Member 2" />
+              <img src="/rarm.jpg" alt="Member 2" />
               <h3>NUTTHAKIT SAELIM</h3>
               <p>Business/System Analyst</p>
             </div>
              <div className="team-member">
-              <img src="/public/kiw.jpg" alt="Member 2" />
+              <img src="/kiw.jpg" alt="Member 2" />
               <h3>RATTHASAT NGAMKKHUN</h3>
               <p>Frontend Developer</p>
             </div>
              <div className="team-member">
-              <img src="/public/pun.jpg" alt="Member 2" />
+              <img src="/pun.jpg" alt="Member 2" />
               <h3>NATHAACHAPONG SURASITTHANATHORN</h3>
               <p>Documentation</p>
             </div>
