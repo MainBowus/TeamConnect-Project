@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Kanit', 'Poppins', sans-serif;
   }
   
 
@@ -19,10 +19,11 @@
 }
   
 .logo {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.2rem;
+  font-weight: 700;
   color: #2c3e50;
-  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 }
 .logo sup {
   font-size: 0.8rem;
@@ -35,9 +36,10 @@
 }
 
 .menu a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -71,16 +73,21 @@
   }
   
   .welcome h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 5rem;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 1px;
   }
   
   .welcome p {
-    font-size: 15px;
-    font-weight: bold;
-    color: #3f3f3f;
-    margin: 0.3rem 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0.8rem 0;
+    font-family: 'Kanit', sans-serif;
   }
   
   .news {
@@ -276,6 +283,7 @@
   }
   
   .center-buttons .btn {
+    font-family: 'Kanit', sans-serif;
     background-color: #4f4fd8;
     color: white;
     border: none;
@@ -458,6 +466,7 @@
   
   /* ปุ่มเข้าสู่ระบบ/ออกจากระบบ */
 .auth-btn {
+  font-family: 'Kanit', sans-serif;
   display: flex;
   align-items: center;
   gap: 8px;
