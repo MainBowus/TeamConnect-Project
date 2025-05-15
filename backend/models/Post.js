@@ -8,7 +8,7 @@ const PostSchema = new mongoose.Schema({
   category: { 
     type: String, 
     required: true,
-    enum: ['Programming', 'Design', 'Language', 'Business', 'Other'], // เพิ่ม 'Other'
+    enum: ['Programming', 'Design', 'Language', 'Business', 'Other'],
   },
 });
 
