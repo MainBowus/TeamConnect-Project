@@ -53,18 +53,18 @@ const Landing = () => {
 
         <aside className="news">
           <a href="https://tu.ac.th" className="news-box title">
-            <img src="/public/tu.png" alt="โฆษณา 1" />
+            <img src="/tu.png" alt="โฆษณา 1" />
           </a>
           <a href="https://engr.tu.ac.th" className="news-box title">
-            <img src="/public/tse.jpg" alt="โฆษณา 2" />
+            <img src="/tse.jpg" alt="โฆษณา 2" />
           </a>
           <a href="https://tupine.engr.tu.ac.th" className="news-box title">
-            <img src="/public/tupines.jpg" alt="โฆษณา 3" />
+            <img src="/tupines.jpg" alt="โฆษณา 3" />
           </a>
         </aside>
 
         <div className="bottom-left-logo">
-          <img src="/public/logo.png" alt="SYNERLEARN Logo" />
+          <img src="/logo.png" alt="SYNERLEARN Logo" />
         </div>
       </main>
     </div>
