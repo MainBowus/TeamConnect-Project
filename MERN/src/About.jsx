@@ -63,7 +63,7 @@ const About = () => {
               <p>Business/System Analyst</p>
             </div>
              <div className="team-member">
-              <img src="/public/user.png" alt="Member 2" />
+              <img src="/public/kiw.jpg" alt="Member 2" />
               <h3>RATTHASAT NGAMKKHUN</h3>
               <p>Frontend Developer</p>
             </div>

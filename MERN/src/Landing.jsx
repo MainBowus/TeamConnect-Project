@@ -21,7 +21,7 @@ const Landing = () => {
         <div className="logo">SYNERLEARN<sup>™</sup></div>
         <nav className="menu">
           <a href="/">ข่าวสาร</a>
-          <a href="#">ติดต่อทีมงาน</a>
+          <a href="https://youtu.be/dQw4w9WgXcQ?si=88KQkPe92kdK_GeR">ติดต่อทีมงาน</a>
           <a href="/about">เกี่ยวกับเรา</a>
         </nav>
 
@@ -52,14 +52,14 @@ const Landing = () => {
         </section>
 
         <aside className="news">
-          <a href="https://www.facebook.com" className="news-box title">
-            <img src="/public/logoSLN.png" alt="โฆษณา 1" />
+          <a href="https://tu.ac.th" className="news-box title">
+            <img src="/public/tu.png" alt="โฆษณา 1" />
           </a>
-          <a href="/page2" className="news-box title">
-            <img src="/public/logoSLN.png" alt="โฆษณา 2" />
+          <a href="https://engr.tu.ac.th" className="news-box title">
+            <img src="/public/tse.jpg" alt="โฆษณา 2" />
           </a>
-          <a href="/page3" className="news-box title">
-            <img src="/public/logoSLN.png" alt="โฆษณา 3" />
+          <a href="https://tupine.engr.tu.ac.th" className="news-box title">
+            <img src="/public/tupines.jpg" alt="โฆษณา 3" />
           </a>
         </aside>
 
@@ -72,3 +72,5 @@ const Landing = () => {
 };
 
 export default Landing;
+
+

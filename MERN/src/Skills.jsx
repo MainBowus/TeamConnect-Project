@@ -37,7 +37,7 @@ function Skills({ posts }) {
         <Link to="/Home" className="logo">SYNERLEARN<sup>™</sup></Link>
         <nav className="main-menu">
           <Link to="/" className="menu-item">ข่าวสาร</Link>
-          <Link to="/contact" className="menu-item">ติดต่อทีมงาน</Link>
+          <Link to="https://youtu.be/dQw4w9WgXcQ?si=88KQkPe92kdK_GeR" className="menu-item">ติดต่อทีมงาน</Link>
           <Link to="/about" className="menu-item">เกี่ยวกับเรา</Link>
         </nav>
         <button onClick={handleAuthClick} className="auth-button">
