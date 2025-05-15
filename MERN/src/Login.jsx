@@ -15,14 +15,15 @@ function Login() {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/login`,
-        { username, password }
+        { username, password },
+        { headers: { 'Content-Type': 'application/json' } }
       );
 
-      // ✅ เก็บ token และสถานะ login
+      // เก็บ token และสถานะ login
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('token', response.data.token); // ← สำคัญ
+      localStorage.setItem('token', response.data.token);
 
-      // ✅ นำทางกลับหน้าที่เคยพยายามเข้าก่อน login
+      // นำทางกลับหน้าที่เคยพยายามเข้าก่อน login
       const from = location.state?.from?.pathname || '/home';
       navigate(from, { replace: true });
     } catch (err) {
