@@ -18,12 +18,11 @@ function Register() {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/register', {
-        username,
-        email,
-        password,
-      });
-      alert('ลงทะเบียนสำเร็จ!');
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/register`,
+        { username, email, password }
+      );
+      alert(response.data.message || 'ลงทะเบียนสำเร็จ!');
       navigate('/');
     } catch (err) {
       alert(err.response?.data?.message || 'เกิดข้อผิดพลาด');
@@ -31,18 +30,18 @@ function Register() {
   };
 
   return (
-    
     <div className="auth-container">
       <div className="background-shapes">
         <div className="shape shape1"></div>
         <div className="shape shape2"></div>
       </div>
+
       <div className="auth-card">
         <div className="left-panel">
           <h1>SYNER<br /><span>LEARN</span></h1>
           <a href="/login" className="switch-btn">SIGN IN</a>
         </div>
-        
+
         <div className="right-panel">
           <h2>Create Account</h2>
           <form onSubmit={handleRegister}>

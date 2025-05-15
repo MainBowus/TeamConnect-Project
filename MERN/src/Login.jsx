@@ -13,11 +13,13 @@ function Login() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/api/login', { username, password });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/login`,
+        { username, password }
+      );
 
       localStorage.setItem('isLoggedIn', 'true');
-      
-      // Redirect ไปยังหน้าที่พยายามจะเข้าหรือหน้า home
+
       const from = location.state?.from?.pathname || '/home';
       navigate(from, { replace: true });
     } catch (err) {
@@ -27,20 +29,17 @@ function Login() {
 
   return (
     <div className="auth-container">
-      {/* ✅ รูปทรงพื้นหลัง */}
       <div className="background-shapes">
-        <div className="shape1"></div>
-        <div className="shape2"></div>
+        <div className="shape shape1"></div>
+        <div className="shape shape2"></div>
       </div>
 
       <div className="auth-card">
-        {/* ✅ ฝั่งซ้าย */}
         <div className="left-panel">
           <h1>SYNER<br /><span>LEARN</span></h1>
           <Link to="/register" className="switch-btn">CREATE ACCOUNT</Link>
         </div>
 
-        {/* ✅ ฝั่งขวา */}
         <div className="right-panel">
           <h2>Login</h2>
           <form onSubmit={handleLogin}>
