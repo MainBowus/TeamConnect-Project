@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'; // เพิ่มการ import Link
+import { Link } from 'react-router-dom';
 import './CSS/Post.css';
 
 function Post({ onPost }) {

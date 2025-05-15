@@ -42,7 +42,7 @@ const Post = mongoose.model('Post', PostSchema);
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  email:    { type: String, required: true, unique: true }, // เพิ่ม email
+  email:    { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
 const User = mongoose.model('User', UserSchema);
@@ -51,14 +51,14 @@ const User = mongoose.model('User', UserSchema);
 
 // Register
 app.post('/api/register', async (req, res) => {
-  const { username, email, password } = req.body; // เพิ่ม email
+  const { username, email, password } = req.body;
   try {
     const existing = await User.findOne({ $or: [{ username }, { email }] });
     if (existing)
       return res.status(400).json({ message: 'Username หรือ Email นี้ถูกใช้แล้ว' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword }); // เพิ่ม email
+    const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
     res.status(201).json({ message: 'ลงทะเบียนสำเร็จ' });
   } catch (err) {

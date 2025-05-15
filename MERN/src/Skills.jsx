@@ -80,7 +80,7 @@ function Skills({ posts }) {
             Business
           </button>
           <button
-            className={`filter-btn ${selectedCategory === 'Other' ? 'active' : ''}`} // เพิ่มปุ่มนี้
+            className={`filter-btn ${selectedCategory === 'Other' ? 'active' : ''}`}
             onClick={() => handleCategoryChange('Other')}
           >
             อื่นๆ
