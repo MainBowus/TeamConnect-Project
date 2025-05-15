@@ -11,7 +11,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173','https://synerlearn.vercel.app', process.env.VITE_API_URL],
+  origin: [
+    'http://localhost:5173',
+    'https://synerlearn.vercel.app'
+  ],
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -39,6 +42,7 @@ const Post = mongoose.model('Post', PostSchema);
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
+  email:    { type: String, required: true, unique: true }, // เพิ่ม email
   password: { type: String, required: true },
 });
 const User = mongoose.model('User', UserSchema);
