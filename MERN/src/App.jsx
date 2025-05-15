@@ -25,10 +25,13 @@ function App() {
   }, []);
 
   const handlePost = (post) => {
-    axios.post(`${API_URL}/api/posts`, post)
+    const token = localStorage.getItem('token');
+    axios.post(`${API_URL}/api/posts`, post, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
       .then(res => setPosts(prev => [...prev, res.data]))
       .catch(err => console.error('Error posting:', err));
-  };
+};
 
   return (
     <BrowserRouter>

@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', process.env.VITE_API_URL],
+  origin: ['http://localhost:5173','https://synerlearn.vercel.app', process.env.VITE_API_URL],
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -47,13 +47,14 @@ const User = mongoose.model('User', UserSchema);
 
 // Register
 app.post('/api/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body; // เพิ่ม email
   try {
-    const existing = await User.findOne({ username });
-    if (existing) return res.status(400).json({ message: 'ผู้ใช้นี้มีอยู่แล้ว' });
+    const existing = await User.findOne({ $or: [{ username }, { email }] });
+    if (existing)
+      return res.status(400).json({ message: 'Username หรือ Email นี้ถูกใช้แล้ว' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, password: hashedPassword });
+    const newUser = new User({ username, email, password: hashedPassword }); // เพิ่ม email
     await newUser.save();
     res.status(201).json({ message: 'ลงทะเบียนสำเร็จ' });
   } catch (err) {

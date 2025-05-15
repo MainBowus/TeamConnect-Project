@@ -4,12 +4,12 @@ const User = require('../models/User');
 
 //  Register
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body; // เพิ่ม email
   try {
-    const existing = await User.findOne({ username });
-    if (existing) return res.status(400).json({ message: 'User already exists' });
+    const existing = await User.findOne({ $or: [{ username }, { email }] });
+    if (existing) return res.status(400).json({ message: 'User or email already exists' });
 
-    const user = new User({ username, password });
+    const user = new User({ username, email, password }); // เพิ่ม email
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
