@@ -43,20 +43,6 @@ const UserSchema = new mongoose.Schema({
 });
 const User = mongoose.model('User', UserSchema);
 
-// --------- Middleware ตรวจสอบ Token ---------
-const verifyToken = (req, res, next) => {
-  const token = req.headers['authorization'];
-  if (!token) return res.status(403).json({ message: 'Token ไม่ถูกส่งมา' });
-
-  try {
-    const decoded = jwt.verify(token.split(" ")[1], JWT_SECRET);
-    req.userId = decoded.userId;
-    next();
-  } catch (err) {
-    res.status(401).json({ message: 'Token ไม่ถูกต้อง' });
-  }
-};
-
 // --------- Routes ---------
 
 // Register
