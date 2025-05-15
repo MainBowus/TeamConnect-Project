@@ -5,6 +5,7 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+const verifyToken = require('./verifyToken');
 
 const app = express();
 

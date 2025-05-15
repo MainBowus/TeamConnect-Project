@@ -18,8 +18,11 @@ function Login() {
         { username, password }
       );
 
+      // ✅ เก็บ token และสถานะ login
       localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('token', response.data.token); // ← สำคัญ
 
+      // ✅ นำทางกลับหน้าที่เคยพยายามเข้าก่อน login
       const from = location.state?.from?.pathname || '/home';
       navigate(from, { replace: true });
     } catch (err) {
